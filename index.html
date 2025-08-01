@@ -251,73 +251,73 @@
 
     <script>
         // Toggle password visibility
-        const togglePassword = document.getElementById('togglePassword');
-        const password = document.getElementById('password');
+        const togglePassword = document.getElementById('togglePassword')
+        const password = document.getElementById('password')
         
         togglePassword.addEventListener('click', function() {
-            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-            password.setAttribute('type', type);
-            this.innerHTML = type === 'password' ? '👁️' : '👁️‍🗨️';
-        });
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password'
+            password.setAttribute('type', type)
+            this.innerHTML = type === 'password' ? '👁️' : '👁️‍🗨️'
+        })
 
         // Form submission handler
-        const loginForm = document.getElementById('loginForm');
-        const loginContainer = document.getElementById('loginContainer');
-        const dashboard = document.getElementById('dashboard');
-        const welcomeMessage = document.getElementById('welcomeMessage');
+        const loginForm = document.getElementById('loginForm')
+        const loginContainer = document.getElementById('loginContainer')
+        const dashboard = document.getElementById('dashboard')
+        const welcomeMessage = document.getElementById('welcomeMessage')
         
         // Sample user data for demo
         const demoUsers = [
             { username: 'admin', password: 'admin123', name: 'Administrator' },
             { username: 'user', password: 'user123', name: 'Regular User' },
             { username: 'dervin', password: 'dervin123', name: 'black user' }
-        ];
+        ]
 
         loginForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+            e.preventDefault()
             
-            const username = document.getElementById('username').value.trim();
-            const password = document.getElementById('password').value;
+            const username = document.getElementById('username').value.trim()
+            const password = document.getElementById('password').value
             
             // Simple validation
             if (!username || !password) {
-                alert('Please fill in all fields');
-                return;
+                alert('Please fill in all fields')
+                return
             }
             
             // Check credentials against demo users
             const user = demoUsers.find(u => 
                 (u.username === username || u.email === username) && 
                 u.password === password
-            );
+            )
             
             if (user) {
                 // Success - redirect to dashboard
-                loginContainer.style.display = 'none';
-                dashboard.style.display = 'block';
-                welcomeMessage.textContent = `Welcome, ${user.name}!`;
+                loginContainer.style.display = 'none'
+                dashboard.style.display = 'block'
+                welcomeMessage.textContent = `Welcome, ${user.name}!`
                 
                 // In a real application, you might:
                 // - Store authentication token
                 // - Redirect to another page: window.location.href = 'dashboard.html';
                 // - Make API calls to verify credentials
             } else {
-                alert('Invalid username or password');
+                alert('Invalid username or password')
             }
-        });
+        })
         
         // Logout functionality
-        const logoutBtn = document.getElementById('logoutBtn');
+        const logoutBtn = document.getElementById('logoutBtn')
         
         logoutBtn.addEventListener('click', function() {
             // In a real application, you might:
             // - Clear authentication token
             // - Redirect to login page
             
-            dashboard.style.display = 'none';
-            loginContainer.style.display = 'block';
-            loginForm.reset();
-        });
+            dashboard.style.display = 'none'
+            loginContainer.style.display = 'block'
+            loginForm.reset()
+        })
     </script>
 </body>
 </html>
